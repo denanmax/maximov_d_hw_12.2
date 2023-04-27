@@ -8,7 +8,7 @@ def test_get():
     assert arrs.get([1, 2, 3], 5) == None
     assert arrs.get([1, 2, 3], -1, "wrong") == "wrong"
     assert arrs.get([1, 2, 3], 5, "wrong") == "wrong"
-    assert arrs.get([100, 2000, 100000], 2, "test") == 100000
+    assert arrs.get([100, 2000, 100_000], 2, "test") == 100_000
 
 
 def test_slice():
