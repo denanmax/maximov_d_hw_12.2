@@ -19,16 +19,16 @@ def test_slice():
     assert arrs.my_slice([1, 2, 3, 4], 1, 3) == [2, 3]
     assert arrs.my_slice([1, 2, 3], 1) == [2, 3]
     assert arrs.my_slice([], 1) == []
+    assert my_slice([]) == []
     assert arrs.my_slice([1, 2, 3], -1) == [3]
     assert arrs.my_slice([1, 2, 3, 4, 5], 0, -2) == [1, 2, 3]
     assert arrs.my_slice([1, 2, 3, 4, 5], -3, 5) == [3, 4, 5]
+    assert arrs.my_slice([1, 2, 3, 4, 5]) == [1, 2, 3, 4, 5]
+    assert arrs.my_slice([1, 2, 3, 4, 5], end=3) == [1, 2, 3]
+    assert arrs.my_slice([1, 2, 3, 4, 5], end=-1) == [1, 2, 3, 4]
+    assert my_slice([1, 2, 3, 4, 5], -10, 10) == [1, 2, 3, 4, 5]
+    assert my_slice([1, 2, 3, 4, 5], start=-1, end=3) == []
 
-class TestSlice(unittest.TestCase):
-    def test_slice_negative(self):
-        list_to_slice = [0, 1, 2, 3, 4]
-        self.assertEqual(my_slice(list_to_slice, -3, None), [2, 3, 4])
 
 
 
-if __name__ == '__main__':
-    unittest.main()
