@@ -1,5 +1,9 @@
 from utils import arrs
+import unittest
 import pytest
+
+from utils.arrs import my_slice
+
 
 def test_get():
     assert arrs.get([1, 2, 3], 1, "test") == 2
@@ -18,3 +22,13 @@ def test_slice():
     assert arrs.my_slice([1, 2, 3], -1) == [3]
     assert arrs.my_slice([1, 2, 3, 4, 5], 0, -2) == [1, 2, 3]
     assert arrs.my_slice([1, 2, 3, 4, 5], -3, 5) == [3, 4, 5]
+
+class TestSlice(unittest.TestCase):
+    def test_slice_negative(self):
+        list_to_slice = [0, 1, 2, 3, 4]
+        self.assertEqual(my_slice(list_to_slice, -3, None), [2, 3, 4])
+
+
+
+if __name__ == '__main__':
+    unittest.main()
